@@ -18,11 +18,11 @@ UNIT="hours"
 age_in_hours=$(( (${time_diff} / ${SEC_IN_HOUR}) ))
 
 message="latest backup ${backup} is ${age_in_hours} hours old"
-if [[ ${age_in_hours} < 24 ]] 
+if [[ ${age_in_hours} -lt 24 ]] 
 then
 	echo "OK, ${message}"
 	exit 0
-elif [[ ${age_in_hours} < 48 ]]
+elif [[ ${age_in_hours} -lt 48 ]]
 then
 	echo "WARNING, ${message}"
 	exit 1
